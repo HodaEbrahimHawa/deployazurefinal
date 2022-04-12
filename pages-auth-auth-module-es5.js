@@ -697,14 +697,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! tslib */
     "./node_modules/tslib/tslib.es6.js");
 
-    var LoggedInUser = /*#__PURE__*/_createClass(function LoggedInUser(id, firstName, lastName, role, isAdmin) {
+    var LoggedInUser = /*#__PURE__*/_createClass(function LoggedInUser(id, firstName, isAdmin, merchant) {
       _classCallCheck(this, LoggedInUser);
 
       this.id = id;
       this.fullName = firstName;
-      this.email = lastName;
-      this.role = role;
       this.isAdmin = isAdmin;
+      this.merchant = merchant;
     });
     /***/
 
@@ -867,7 +866,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi8uLi9wYWdlcy9hdXRoL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2F1dGgvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -1022,12 +1021,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (res.isSuccess) {
               var data = res.data;
-              var userInfo = new src_app_models_loggedInUser__WEBPACK_IMPORTED_MODULE_2__["LoggedInUser"](data.id, data.fullName, data.email, data.role, data.isAdmin);
+              localStorage.setItem("token", data.token);
+              var user = data.user;
+              var userInfo = new src_app_models_loggedInUser__WEBPACK_IMPORTED_MODULE_2__["LoggedInUser"](user.id, user.fullName, user.isAdmin, user.merchant);
 
               _this10.authService.login(userInfo);
             } else {
-              _this10.matSnackBar.open("Wrong username or password", "Ok", {
-                duration: 5000,
+              _this10.matSnackBar.open(res.message, "Ok", {
+                //duration: 5000,
+                panelClass: ["snack-style"],
                 horizontalPosition: "center",
                 verticalPosition: "top"
               });

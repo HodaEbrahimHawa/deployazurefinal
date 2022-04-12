@@ -465,12 +465,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 class LoggedInUser {
-    constructor(id, firstName, lastName, role, isAdmin) {
+    constructor(id, firstName, isAdmin, merchant) {
         this.id = id;
         this.fullName = firstName;
-        this.email = lastName;
-        this.role = role;
         this.isAdmin = isAdmin;
+        this.merchant = merchant;
     }
 }
 
@@ -571,7 +570,7 @@ AuthModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi8uLi9wYWdlcy9hdXRoL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2F1dGgvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MifQ== */");
 
 /***/ }),
 
@@ -653,12 +652,15 @@ let LoginComponent = class LoginComponent {
             debugger;
             if (res.isSuccess) {
                 let data = res.data;
-                const userInfo = new src_app_models_loggedInUser__WEBPACK_IMPORTED_MODULE_2__["LoggedInUser"](data.id, data.fullName, data.email, data.role, data.isAdmin);
+                localStorage.setItem("token", data.token);
+                var user = data.user;
+                const userInfo = new src_app_models_loggedInUser__WEBPACK_IMPORTED_MODULE_2__["LoggedInUser"](user.id, user.fullName, user.isAdmin, user.merchant);
                 this.authService.login(userInfo);
             }
             else {
-                this.matSnackBar.open("Wrong username or password", "Ok", {
-                    duration: 5000,
+                this.matSnackBar.open(res.message, "Ok", {
+                    //duration: 5000,
+                    panelClass: ["snack-style"],
                     horizontalPosition: "center",
                     verticalPosition: "top",
                 });

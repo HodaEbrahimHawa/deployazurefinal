@@ -17858,7 +17858,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-banner [title]=\"'Manage Users'\" [subTitle]=\"'Manage Users'\" [image]=\"homeIcon\"\r\n(actionEventEmitter)=\"goToHomePage()\"></app-banner>\r\n<app-page-header [buttonIcon] = \"plusIcon\" title=\"User Information\" actionName=\"Add New User\"\r\n    (actionEventEmitter)=\"openAddUserModal('manage-user-modal')\">\r\n</app-page-header>\r\n\r\n\r\n<ngx-datatable class=\"material\" [rows]=\"users\"\r\n    [columnMode]=\"ColumnMode.force\" [headerHeight]=\"50\" [footerHeight]=\"50\" [scrollbarH]=\"true\">\r\n\r\n    <ngx-datatable-column name=\"Full Name\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['fullName']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"User Name\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['userName']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Email\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['email']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Password\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div class=\"cell-password\">{{ row['showPassword'] ? row['password']  : '●●●●●●'}}\r\n                <img class=\"cursor-pointer\" [src]=\"row['showPassword'] ? heddenGrayEye :grayEye\" (click)=\"togglePassword(row)\"/>\r\n            </div>\r\n\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Nationality\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['nationality']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Address\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['address']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Mobile\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['mobile']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Company\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['company']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Role\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['role']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Status\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['status']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Action\" [width]=\"80\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <button class=\"table-button\" (click)=\"openEditUserModal('manage-user-modal', row)\">\r\n                <img [src]=\"editIcon\"/>\r\n            </button>\r\n            <button class=\"table-button\" (click)=\"openDeleteUserConfirmationModal('confirm-delete-modal', row)\">\r\n                <img [src]=\"deletIcon\"/>\r\n            </button>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n</ngx-datatable>\r\n\r\n<custom-modal id=\"manage-user-modal\">\r\n    <h5>Plase fill in the following information</h5>\r\n\r\n    <form [formGroup]=\"userFormGroup\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Full Name\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'fullName'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.fullName\">\r\n                </app-custom-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"User Name\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'userName'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.userName\">\r\n                </app-custom-input>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Email\" [isRequired]=\"true\" inputType=\"email\"\r\n                    [controlName]=\"'email'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.email\">\r\n                </app-custom-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Password\" [showTogglePassword]=\"true\" [isRequired]=\"true\" inputType=\"password\"\r\n                    [controlName]=\"'password'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.password\">\r\n                </app-custom-input>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-select [isRequired]=\"true\" defaultValueLabel=\"Select Nationality\" labelText=\"Select Nationality\"\r\n                    [options]=\"nationalities\" [formGroup]=\"userFormGroup\" [controlName]=\"'nationality'\">\r\n                </app-custom-select>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Address\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'address'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.address\">\r\n                </app-custom-input>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Mobile\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'mobile'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.mobile\">\r\n                </app-custom-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-select [isRequired]=\"true\" defaultValueLabel=\"Select Merchant\" labelText=\"Select Merchant\"\r\n                    [options]=\"companies\" [formGroup]=\"userFormGroup\" [controlName]=\"'company'\">\r\n                </app-custom-select>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-select [isRequired]=\"true\" defaultValueLabel=\"Select Role\" labelText=\"Select Role\"\r\n                    [options]=\"roles\" [formGroup]=\"userFormGroup\" [controlName]=\"'role'\">\r\n                </app-custom-select>\r\n            </div>\r\n            <div class=\"form-group-radio-button\">\r\n                <div class=\"radio-label\">Status *</div>\r\n                <div class=\"form-group-radio\">\r\n                <div class=\"radio-container\">\r\n                    <input type=\"radio\" value=\"enable\" formControlName=\"status\" [checked]=\"true\" id=\"enabled\"/>\r\n                    <span for=\"enabled\">Enabled</span>\r\n                </div>\r\n\r\n                <div class=\"radio-container\">\r\n                    <input type=\"radio\" value=\"disable\" formControlName=\"status\" />\r\n                    <span>Disabled</span>\r\n                </div>\r\n                </div>\r\n\r\n                <app-form-validation [formGroup]=\"userFormGroup\" [controlName]=\"'status'\"\r\n                    [validationErrors]=\"validationErrorMessages?.status\"> </app-form-validation>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-action\">\r\n            <button type=\"submit\" class=\"main-button\" [disabled]=\"userFormGroup.invalid\">{{editMode ? 'Save' :'Add'}}</button>\r\n            <button type=\"button\" class=\"main-button with-border\" (click)=\"closeManageUserModal('manage-user-modal')\">Cancel</button>\r\n        </div>\r\n    </form>\r\n</custom-modal>\r\n\r\n<custom-modal id=\"confirm-delete-modal\">\r\n    <h5>Are you sure do you want to delete the user</h5>\r\n    <div class=\"confirm-action\">\r\n        <button type=\"button\" class=\"main-button\" (click)=\"deleteUser()\">Yes</button>\r\n        <button type=\"button\" class=\"main-button with-border\" (click)=\"closeManageUserModal('confirm-delete-modal')\">No</button>\r\n    </div>\r\n</custom-modal>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-banner [title]=\"'Manage Users'\" [subTitle]=\"'Manage Users'\" [image]=\"homeIcon\"\r\n(actionEventEmitter)=\"goToHomePage()\"></app-banner>\r\n<app-page-header [buttonIcon] = \"plusIcon\" title=\"User Information\" actionName=\"Add New User\"\r\n    (actionEventEmitter)=\"openAddUserModal('manage-user-modal')\">\r\n</app-page-header>\r\n\r\n\r\n<ngx-datatable class=\"material\" [rows]=\"users\"\r\n    [columnMode]=\"ColumnMode.force\" [headerHeight]=\"50\" [footerHeight]=\"50\" [scrollbarH]=\"true\">\r\n\r\n    <ngx-datatable-column name=\"Full Name\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['fullName']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"User Name\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['userName']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Email\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['email']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Password\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div class=\"cell-password\">{{ row['showPassword'] ? row['password']  : '●●●●●●'}}\r\n                <img class=\"cursor-pointer\" [src]=\"row['showPassword'] ? heddenGrayEye :grayEye\" (click)=\"togglePassword(row)\"/>\r\n            </div>\r\n\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <!-- <ngx-datatable-column name=\"Nationality\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['nationality']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column> -->\r\n\r\n    <!-- <ngx-datatable-column name=\"Address\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['address']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column> -->\r\n\r\n    <!-- <ngx-datatable-column name=\"Mobile\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['mobile']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column> -->\r\n\r\n    <!-- <ngx-datatable-column name=\"Merchant\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['merchant']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n-->\r\n    <ngx-datatable-column name=\"Role\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['role']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Status\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <div>{{row['status']}}</div>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n\r\n    <ngx-datatable-column name=\"Action\" [width]=\"80\">\r\n        <ng-template let-row=\"row\" let-value=\"value\" ngx-datatable-cell-template>\r\n            <button class=\"table-button\" (click)=\"openEditUserModal('manage-user-modal', row)\">\r\n                <img [src]=\"editIcon\"/>\r\n            </button>\r\n            <button class=\"table-button\" (click)=\"openDeleteUserConfirmationModal('confirm-delete-modal', row)\">\r\n                <img [src]=\"deletIcon\"/>\r\n            </button>\r\n        </ng-template>\r\n    </ngx-datatable-column>\r\n</ngx-datatable>\r\n\r\n<custom-modal id=\"manage-user-modal\">\r\n    <h5>Plase fill in the following information</h5>\r\n\r\n    <form [formGroup]=\"userFormGroup\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Full Name\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'fullName'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.fullName\">\r\n                </app-custom-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"User Name\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'userName'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.userName\">\r\n                </app-custom-input>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Email\" [isRequired]=\"true\" inputType=\"email\"\r\n                    [controlName]=\"'email'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.email\">\r\n                </app-custom-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Password\" [showTogglePassword]=\"true\" [isRequired]=\"true\" inputType=\"password\"\r\n                    [controlName]=\"'password'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.password\">\r\n                </app-custom-input>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-select [isRequired]=\"true\" defaultValueLabel=\"Select Nationality\" labelText=\"Select Nationality\"\r\n                    [options]=\"nationalities\" [formGroup]=\"userFormGroup\" [controlName]=\"'nationality'\">\r\n                </app-custom-select>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Address\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'address'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.address\">\r\n                </app-custom-input>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-input labelText=\"Mobile\" [isRequired]=\"true\" inputType=\"text\"\r\n                    [controlName]=\"'mobile'\" [formGroup]=\"userFormGroup\" [validationErrors]=\"validationErrorMessages?.mobile\">\r\n                </app-custom-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <app-custom-select [isRequired]=\"true\" defaultValueLabel=\"Select Merchant\" labelText=\"Select Merchant\"\r\n                    [options]=\"companies\" [formGroup]=\"userFormGroup\" [controlName]=\"'merchant'\">\r\n                </app-custom-select>\r\n            </div>\r\n        </div>\r\n\r\n\r\n\r\n        <div class=\"form-row\">\r\n            <div class=\"form-group\">\r\n                <app-custom-select [isRequired]=\"true\" defaultValueLabel=\"Select Role\" labelText=\"Select Role\"\r\n                    [options]=\"roles\" [formGroup]=\"userFormGroup\" [controlName]=\"'role'\">\r\n                </app-custom-select>\r\n            </div>\r\n            <div class=\"form-group-radio-button\">\r\n                <div class=\"radio-label\">Status *</div>\r\n                <div class=\"form-group-radio\">\r\n                <div class=\"radio-container\">\r\n                    <input type=\"radio\" value=\"enable\" formControlName=\"status\" [checked]=\"true\" id=\"enabled\"/>\r\n                    <span for=\"enabled\">Enabled</span>\r\n                </div>\r\n\r\n                <div class=\"radio-container\">\r\n                    <input type=\"radio\" value=\"disable\" formControlName=\"status\" />\r\n                    <span>Disabled</span>\r\n                </div>\r\n                </div>\r\n\r\n                <app-form-validation [formGroup]=\"userFormGroup\" [controlName]=\"'status'\"\r\n                    [validationErrors]=\"validationErrorMessages?.status\"> </app-form-validation>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-action\">\r\n            <button type=\"submit\" class=\"main-button\" [disabled]=\"userFormGroup.invalid\">{{editMode ? 'Save' :'Add'}}</button>\r\n            <button type=\"button\" class=\"main-button with-border\" (click)=\"closeManageUserModal('manage-user-modal')\">Cancel</button>\r\n        </div>\r\n    </form>\r\n</custom-modal>\r\n\r\n<custom-modal id=\"confirm-delete-modal\">\r\n    <h5>Are you sure do you want to delete the user</h5>\r\n    <div class=\"confirm-action\">\r\n        <button type=\"button\" class=\"main-button\" (click)=\"deleteUser()\">Yes</button>\r\n        <button type=\"button\" class=\"main-button with-border\" (click)=\"closeManageUserModal('confirm-delete-modal')\">No</button>\r\n    </div>\r\n</custom-modal>\r\n");
 
 /***/ }),
 
@@ -17890,7 +17890,7 @@ let UtilsService = class UtilsService {
             user.nationality = `lebanon`;
             user.address = `beirut_${i}`;
             user.mobile = `03030303_${i}`;
-            user.company = `netways`;
+            user.merchant = `netways`;
             user.role = `engineer`;
             users.push(user);
         }
@@ -18043,7 +18043,7 @@ DashboardModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#embedReport {\n  height: 1000px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3BhZ2VzL2Rhc2hib2FyZC9wYWdlcy9kYXNoYm9hcmQvRDpcXFByb2plY3RzXFxFRkdIZXJtZXNcXGVmZy11aVxcc3JjXFxhcHBcXGNvbXBvbmVudHNcXHNwaW5uZXIvLi5cXC4uXFxwYWdlc1xcZGFzaGJvYXJkXFxwYWdlc1xcZGFzaGJvYXJkXFxkYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCIuLi8uLi9wYWdlcy9kYXNoYm9hcmQvcGFnZXMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGNBQUE7QUNDRiIsImZpbGUiOiIuLi8uLi9wYWdlcy9kYXNoYm9hcmQvcGFnZXMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNlbWJlZFJlcG9ydHtcclxuICBoZWlnaHQ6IDEwMDBweDtcclxufVxyXG4iLCIjZW1iZWRSZXBvcnQge1xuICBoZWlnaHQ6IDEwMDBweDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("#embedReport {\n  height: 1000px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvZGFzaGJvYXJkL3BhZ2VzL2Rhc2hib2FyZC9EOlxcUHJvamVjdHNcXEVGR0hlcm1lc1xcZWZnLXVpL3NyY1xcYXBwXFxwYWdlc1xcZGFzaGJvYXJkXFxwYWdlc1xcZGFzaGJvYXJkXFxkYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2Rhc2hib2FyZC9wYWdlcy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsY0FBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvZGFzaGJvYXJkL3BhZ2VzL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjZW1iZWRSZXBvcnR7XHJcbiAgaGVpZ2h0OiAxMDAwcHg7XHJcbn1cclxuIiwiI2VtYmVkUmVwb3J0IHtcbiAgaGVpZ2h0OiAxMDAwcHg7XG59Il19 */");
 
 /***/ }),
 
@@ -18159,7 +18159,7 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi8uLi9wYWdlcy9kYXNoYm9hcmQvcGFnZXMvdXNlcnMvdXNlcnMuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2Rhc2hib2FyZC9wYWdlcy91c2Vycy91c2Vycy5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -18245,10 +18245,11 @@ let UsersComponent = class UsersComponent {
                 { type: "required", message: "Address is required" }
             ],
             "mobile": [
-                { type: "required", message: "Mobile is required" }
+                { type: "required", message: "Mobile is required" },
+                { type: "pattern", message: "Enter a valid mobile number" }
             ],
-            "company": [
-                { type: "required", message: "Company is required" }
+            "merchant": [
+                { type: "required", message: "Merchant is required" }
             ],
             "role": [
                 { type: "required", message: "Role is required" }
@@ -18270,6 +18271,7 @@ let UsersComponent = class UsersComponent {
             if (res.isSuccess) {
                 this.users = res.data;
                 console.log(this.users);
+                // this.users = this.users.map(x => x.status == true? x.status = "" : x.status = "")
             }
         });
         this.nationalities = this.utilsService.getNationalities();
@@ -18284,8 +18286,8 @@ let UsersComponent = class UsersComponent {
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6)]],
             nationality: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            mobile: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            company: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            mobile: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^(01)([0-9]{9})$')]],
+            merchant: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             role: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             status: ['enable', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
         });
@@ -18317,9 +18319,9 @@ let UsersComponent = class UsersComponent {
         this.userFormGroup.controls['nationality'].setValue(user.nationality);
         this.userFormGroup.controls['address'].setValue(user.address);
         this.userFormGroup.controls['mobile'].setValue(user.mobile);
-        this.userFormGroup.controls['company'].setValue(user.company);
+        this.userFormGroup.controls['merchant'].setValue(user.merchant);
         this.userFormGroup.controls['role'].setValue(user.role);
-        this.userFormGroup.controls['status'].setValue(user.status);
+        this.userFormGroup.controls['status'].setValue(user.status ? "enable" : "disable");
     }
     onSubmit() {
         this.submitted = true;
@@ -18345,19 +18347,30 @@ let UsersComponent = class UsersComponent {
         user.nationality = this.userFormGroup.controls['nationality'].value;
         user.address = this.userFormGroup.controls['address'].value;
         user.mobile = this.userFormGroup.controls['mobile'].value;
-        user.company = this.userFormGroup.controls['company'].value;
+        user.merchant = this.userFormGroup.controls['merchant'].value;
         user.role = this.userFormGroup.controls['role'].value;
         user.status = this.userFormGroup.controls['status'].value == "enable";
+        user.isAdmin = user.role.toLocaleLowerCase() == "admin";
         this.addUserToDB(user).subscribe(res => {
             if (res.isSuccess) {
                 this.users.push(user);
                 this.users = [...this.users];
                 this.closeManageUserModal('manage-user-modal');
-                this.matSnackBar.open("User added successfully", "Ok");
+                this.matSnackBar.open("User added successfully", "Ok", {
+                    duration: 5000,
+                    panelClass: ["snack-style"],
+                    horizontalPosition: "center",
+                    verticalPosition: "top",
+                });
             }
             else {
                 console.log(res.message);
-                this.matSnackBar.open(res.message + " ,try again", "Ok");
+                this.matSnackBar.open(res.message + " ,try again", "Ok", {
+                    //duration: 5000,
+                    panelClass: ["snack-style"],
+                    horizontalPosition: "center",
+                    verticalPosition: "top",
+                });
             }
         });
     }
@@ -18373,26 +18386,31 @@ let UsersComponent = class UsersComponent {
         this.selectedUser.nationality = this.userFormGroup.controls['nationality'].value;
         this.selectedUser.address = this.userFormGroup.controls['address'].value;
         this.selectedUser.mobile = this.userFormGroup.controls['mobile'].value;
-        this.selectedUser.company = this.userFormGroup.controls['company'].value;
+        this.selectedUser.merchant = this.userFormGroup.controls['merchant'].value;
         this.selectedUser.role = this.userFormGroup.controls['role'].value;
         this.selectedUser.status = this.userFormGroup.controls['status'].value == "enable";
+        this.selectedUser.isAdmin = this.userFormGroup.controls['role'].value.toLocaleLowerCase() == "admin";
         this.editUserForDB(this.selectedUser).subscribe(res => {
+            debugger;
             if (res.isSuccess) {
                 console.log({ 'edit user': this.userFormGroup.value });
                 // this.cd.detectChanges();
                 this.closeManageUserModal('manage-user-modal');
                 this.matSnackBar.open("Updated successfully", "Ok", {
                     duration: 5000,
+                    panelClass: ["snack-style"],
                     horizontalPosition: "center",
                     verticalPosition: "top",
                 });
             }
             else {
                 this.matSnackBar.open(res.message + " try again", "Ok", {
-                    duration: 5000,
+                    //duration: 5000,
+                    panelClass: ["snack-style"],
                     horizontalPosition: "center",
                     verticalPosition: "top",
                 });
+                this.prepareData();
                 console.log(res.message);
             }
         });
@@ -18414,13 +18432,15 @@ let UsersComponent = class UsersComponent {
                 this.closeManageUserModal('confirm-delete-modal');
                 this.matSnackBar.open("User deleted successfully", "Ok", {
                     duration: 5000,
+                    panelClass: ["snack-style"],
                     horizontalPosition: "center",
                     verticalPosition: "top",
                 });
             }
             else {
                 this.matSnackBar.open(res.message + " ,try again.", "Ok", {
-                    duration: 5000,
+                    //duration: 5000,
+                    panelClass: ["snack-style"],
                     horizontalPosition: "center",
                     verticalPosition: "top",
                 });
