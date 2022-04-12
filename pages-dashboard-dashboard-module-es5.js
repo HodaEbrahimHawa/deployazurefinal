@@ -26589,6 +26589,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             value: 'Valu',
             label: 'Valu'
           });
+          companies.push({
+            value: 'EFG Hermes',
+            label: 'EFG Hermes'
+          });
           return companies;
         }
       }, {

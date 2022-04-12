@@ -17906,6 +17906,7 @@ let UtilsService = class UtilsService {
         const companies = [];
         companies.push({ value: 'Netways', label: 'Netways' });
         companies.push({ value: 'Valu', label: 'Valu' });
+        companies.push({ value: 'EFG Hermes', label: 'EFG Hermes' });
         return companies;
     }
     getRoles() {
